@@ -7,31 +7,39 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-// Colors that match the iOS bitchat theme
-private val DarkColorScheme = darkColorScheme(
-    primary = Color(0xFF00FF00),        // Bright green (terminal-like)
+// Colors inspired by a modern South African palette.
+private val MzansiDarkColorScheme = darkColorScheme(
+    primary = Color(0xFFE5B865), // A warm, earthy gold
     onPrimary = Color.Black,
-    secondary = Color(0xFF00CC00),      // Darker green
-    onSecondary = Color.Black,
-    background = Color.Black,
-    onBackground = Color(0xFF00FF00),   // Green on black
-    surface = Color(0xFF111111),        // Very dark gray
-    onSurface = Color(0xFF00FF00),      // Green text
-    error = Color(0xFFFF5555),          // Red for errors
-    onError = Color.Black
+    secondary = Color(0xFFC0523C), // A deep, inviting red
+    onSecondary = Color.White,
+    background = Color(0xFF1E1E1E), // Dark charcoal, but not pure black
+    onBackground = Color(0xFFD5D5D5), // Soft white text
+    surface = Color(0xFF2C2C2E), // A slightly lighter charcoal for surfaces
+    onSurface = Color(0xFFE5B865), // Earthy gold for text/icons
+    error = Color(0xFFCF6679),
+    onError = Color.Black,
+    primaryContainer = Color(0xFF454545), // A muted gray for chat bubbles
+    onPrimaryContainer = Color(0xFFD5D5D5),
+    secondaryContainer = Color(0xFF6E4334), // A darker red for secondary elements
+    onSecondaryContainer = Color.White
 )
 
-private val LightColorScheme = lightColorScheme(
-    primary = Color(0xFF008000),        // Dark green
+private val MzansiLightColorScheme = lightColorScheme(
+    primary = Color(0xFFB07F2E), // A rich, darker gold
     onPrimary = Color.White,
-    secondary = Color(0xFF006600),      // Even darker green
+    secondary = Color(0xFFC0523C), // A deep, inviting red
     onSecondary = Color.White,
-    background = Color.White,
-    onBackground = Color(0xFF008000),   // Dark green on white
-    surface = Color(0xFFF8F8F8),        // Very light gray
-    onSurface = Color(0xFF008000),      // Dark green text
-    error = Color(0xFFCC0000),          // Dark red for errors
-    onError = Color.White
+    background = Color(0xFFF9F9F9), // A clean off-white
+    onBackground = Color(0xFF1F1F1F), // Dark text for contrast
+    surface = Color.White,
+    onSurface = Color(0xFFB07F2E), // Rich gold for text/icons
+    error = Color(0xFFB00020),
+    onError = Color.White,
+    primaryContainer = Color(0xFFE8E8E8), // A light gray for chat bubbles
+    onPrimaryContainer = Color(0xFF1F1F1F),
+    secondaryContainer = Color(0xFFD59987), // A lighter red for secondary elements
+    onSecondaryContainer = Color.White
 )
 
 @Composable
@@ -40,8 +48,8 @@ fun BitchatTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> MzansiDarkColorScheme
+        else -> MzansiLightColorScheme
     }
 
     MaterialTheme(
